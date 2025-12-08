@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +40,35 @@
 
   <?php
 
-  include "modulos/cabecera.php";
+  if(isset($_SESSION["ingresar"]) && $_SESSION["ingresar"] == true){
 
-  include "modulos/menu.php";
+    echo '<div class = "wrapper">';
+
+      include "modulos/cabecera.php";
+
+      if ($_SESSION["rol"] == "administrador"){
+
+        include "modulos/menu.php";
+
+      }
+
+      $url = array();
+
+      if(isset($_GET["url"])){
+
+        $url = explode("/", $_GET["url"]);
+
+        if($url[0] == "inicio"){
+          
+          include "modulos/".$url[0].".php";
+
+        }
+
+        echo '';
+
+      }
+
+  }
 
   ?>
 

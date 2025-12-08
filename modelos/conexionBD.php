@@ -11,5 +11,7 @@ class conexionBD{
         return $bd;
 
     }
-    
+
 }
+
+?> 
