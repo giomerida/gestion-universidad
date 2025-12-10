@@ -64,7 +64,7 @@ session_start();
 
         }
 
-        echo '';
+        echo '</div>';
 
       }
 
